@@ -5,11 +5,10 @@
 
 > _Banda_ — « commencement » en Yipunu (langue bantoue du peuple Punu, Gabon).
 
-Monorepo open-source de **starters front-end prêts à l'emploi**. Chaque starter
-embarque le même design system exploitable immédiatement : l'utilisateur ne
-touche qu'aux **tokens couleur** (`packages/banda-tokens/src/tokens.json`) et
-tous les composants — modèles et animations compris — se mettent à jour
-instantanément.
+Monorepo open-source de **starters front-end**. Chaque starter embarque le même
+design system : l'utilisateur ne touche qu'aux **tokens** (`packages/banda-tokens/src/tokens.json`)
+— couleurs, typographie, espacements, animations — et tous les composants se
+mettent à jour après un `pnpm build`.
 
 ## Structure
 
@@ -18,16 +17,18 @@ banda/
 ├── packages/
 │   ├── banda-tokens/      # Source de vérité : JSON → CSS variables + exports TS
 │   ├── banda-tailwind/    # Preset Tailwind partagé (couleurs sémantiques, keyframes…)
+│   ├── banda-core/        # Types domaine framework-agnostic (thème, notifications, ports)
+│   ├── banda-react/       # Bibliothèque de composants React du design system
+│   ├── banda-angular/     # Bibliothèque de composants Angular du design system
 │   └── banda-fields/      # Intelligence des champs (sanitize/format + Zod), framework-agnostic
 ├── starters/
-│   └── _reference/        # Starter de référence (React + Vite + TS + Tailwind)
+│   ├── _reference/        # Starter React + Vite (référence — catalogue complet des composants)
+│   ├── nextjs/            # Starter Next.js 15 (App Router) + React + TS + Tailwind
+│   └── angular/           # Starter Angular 19 (standalone) + TS + Tailwind
 ├── docs/                  # Design system, architecture des atomes, catalogue
 ├── pnpm-workspace.yaml
 └── turbo.json
 ```
-
-**Starter React disponible** : 18 composants livrés, architecture 7 couches complète,
-guardrails IA intégrés. Portages prévus : `vue` · `svelte` · `astro` · `angular` · `nextjs` · `nuxt`.
 
 ## Démarrage
 
@@ -35,10 +36,18 @@ Prérequis : Node ≥ 22, pnpm 9 (`corepack enable`).
 
 ```bash
 pnpm install
-pnpm build                                      # tokens → preset → starter
-pnpm --filter @banda/starter-reference dev      # catalogue sur localhost:5173
+pnpm build                                       # tokens → preset → fields → core
+
+# Lancer un starter au choix
+pnpm --filter @banda/starter-reference dev       # → http://localhost:5173
+pnpm --filter @banda/starter-nextjs dev          # → http://localhost:3000
+pnpm --filter @banda/starter-angular dev         # → http://localhost:4200
+
 pnpm test
 ```
+
+> **Note :** `@banda/core` doit être buildé avant de démarrer les starters Angular et Next.js.
+> `pnpm build` le fait automatiquement depuis la racine.
 
 ## Principes non négociables
 
@@ -55,7 +64,7 @@ pnpm test
    [`docs/atom-architecture.md`](./docs/atom-architecture.md).
 
 Documentation : [`/docs`](./docs/README.md) · Catalogue vivant : `registry.tsx`
-du starter (la grille de l'app de démo fait foi).
+du starter `_reference` (la grille de l'app de démo fait foi).
 
 ## Licence
 

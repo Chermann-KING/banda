@@ -6,13 +6,13 @@ Les violations sont détectées **automatiquement** par ESLint (erreur bloquante
 ## Matrice des dépendances autorisées
 
 ```
-          core  infra  shared  ui  features  pages  app
+          core  infra  shared  ui  features  views  app
 core       —     ✗      ✗      ✗     ✗        ✗      ✗
 infra      ✓     —      ✗      ✗     ✗        ✗      ✗
 shared     ✓     ✗      —      ✗     ✗        ✗      ✗
 ui         ✓     ✗      ✓      —     ✗        ✗      ✗
 features   ✓     ✗      ✓      ✓     —*       ✗      ✗
-pages      ✓     ✗      ✓      ✓     ✓        —      ✗
+views      ✓     ✗      ✓      ✓     ✓        —      ✗
 app        ✓     ✓      ✓      ✓     ✓        ✓      —
 ```
 
@@ -34,16 +34,17 @@ app        ✓     ✓      ✓      ✓     ✓        ✓      —
 
 ### `ui/`
 - Importe : `@/core/**`, `@/shared/**`
-- N'importe jamais : `@/features/**`, `@/pages/**`, `@/infrastructure/**`
+- N'importe jamais : `@/features/**`, `@/views/**`, `@/infrastructure/**`
 
 ### `features/`
 - Importe : `@/core/**`, `@/shared/**`, `@/ui/**`
 - N'importe jamais : l'intérieur d'une autre feature (seulement son `index.ts`)
-- N'importe jamais : `@/pages/**`, `@/infrastructure/**`
+- N'importe jamais : `@/views/**`, `@/infrastructure/**`
 
-### `pages/`
+### `views/`
 - Importe : `@/core/**`, `@/shared/**`, `@/ui/**`, `@/features/**`
 - N'importe jamais : `@/infrastructure/**`
+- Nommée `views/` pour éviter le conflit avec le Pages Router de Next.js
 
 ### `app/`
 - Importe : tout

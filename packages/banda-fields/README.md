@@ -41,14 +41,16 @@ blur    → finalize(value) normalise (trim, https://…)
         → schema.parse    valide (Zod) → message d'erreur français
 ```
 
-## Package « source »
-
-Pas d'étape de build : `exports` pointe sur `./src/index.ts`, les bundlers des
-starters transpilent directement. Tests sans bundler :
+## Build
 
 ```bash
-pnpm --filter @banda/fields test   # node --experimental-strip-types --test
+pnpm --filter @banda/fields build   # src/ → dist/ (tsc)
+pnpm --filter @banda/fields test    # node --experimental-strip-types --test
 ```
+
+Le package compile vers `dist/` via `tsc -p tsconfig.build.json`.
+Les exports pointent vers `dist/index.js` (types : `dist/index.d.ts`).
+Pour modifier la logique : éditer `src/` uniquement, puis rebuilder.
 
 ## Composer un schéma de formulaire
 

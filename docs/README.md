@@ -18,7 +18,9 @@ reste (composants, modèles, animations) se met à jour instantanément.
 | Starter | Statut | Stack |
 | --- | --- | --- |
 | `_reference` | 🚧 18/58 familles livrées (phase A complète + C/D/E partiels) | React 19 + Vite + TS + Tailwind 3.4 |
-| `vue`, `svelte`, `astro`, `angular`, `nextjs`, `nuxt` | ⏳ après validation du référent | — |
+| `nextjs` | ✅ Disponible | Next.js 15 (App Router) + React + TS + Tailwind 3.4 |
+| `angular` | ✅ Disponible | Angular 19 (standalone) + TS + Tailwind 3.4 |
+| `vue`, `svelte`, `astro`, `nuxt` | ⏳ Après validation du référent | — |
 
 Le **statut vivant** des composants est dans
 `starters/_reference/src/pages/catalog/registry.tsx` (et visible dans la

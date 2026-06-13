@@ -7,10 +7,10 @@ Modules métier isolés. Chaque feature encapsule un domaine fonctionnel complet
 ```
 features/
 └── {nom}/
-    ├── components/   composants React spécifiques à la feature
+    ├── components/   composants React 'use client' spécifiques à la feature
     ├── hooks/        hooks métier (useFeature*, useFetch*)
     ├── services/     appels API / side effects
-    ├── store/        état local (Zustand, Context, useState)
+    ├── store/        état local (useState, Context…)
     ├── types/        types propres à cette feature
     └── index.ts      SEULE interface publique — exporte uniquement ce que les autres couches ont besoin de voir
 ```
@@ -19,7 +19,7 @@ features/
 
 | Peut importer | Ne peut PAS importer |
 |---|---|
-| `@/ui/*` | `@/pages/*` |
+| `@/ui/*` | `@/views/*` |
 | `@/shared/*` | `@/app/*` |
 | `@/core/*` | `@/infrastructure/*` |
 | `@/features/{same}/` (interne) | `@/features/{autre}/*` (sous-modules) |
