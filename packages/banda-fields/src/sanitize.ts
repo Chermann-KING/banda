@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sanitizers et formatters purs — aucune dépendance.
  *
  * Convention :
@@ -8,6 +8,7 @@
  */
 
 /** Caractères de contrôle et chevrons — neutralise les injections HTML basiques. */
+// eslint-disable-next-line no-control-regex -- strip intentionnel des caractères de contrôle U+0000-U+001F
 const DANGEROUS_PATTERN = /[<>\u0000-\u001F\u007F]/g;
 
 export function stripDangerous(raw: string): string {
