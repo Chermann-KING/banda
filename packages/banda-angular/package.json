@@ -1,0 +1,28 @@
+{
+  "name": "@banda/angular",
+  "version": "0.1.0",
+  "description": "Bibliothèque de composants Angular du design system Banda — même API et même rendu que @banda/react.",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@banda/core": "workspace:*",
+    "@banda/fields": "workspace:*",
+    "tslib": "^2.8.0"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=19.0.0",
+    "@angular/core": ">=19.0.0",
+    "lucide-angular": ">=0.511.0"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^19.2.0",
+    "@angular/compiler-cli": "^19.2.0",
+    "typescript": "~5.7.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@banda/core",
+  "version": "0.1.0",
+  "description": "Types domaine Banda — framework-agnostic : thème, notifications, ports de persistance.",
+  "type": "module",
+  "license": "MIT",
+  "files": ["dist", "src"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3"
+  }
+}
