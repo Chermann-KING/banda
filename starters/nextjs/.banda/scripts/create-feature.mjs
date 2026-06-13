@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Usage: node .banda/scripts/create-feature.mjs <feature-name>
- * Creates src/features/<name>/ from .banda/templates/feature/
+ * Crée src/features/<name>/ depuis .banda/templates/feature/
  */
 import { cpSync, existsSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -23,7 +23,7 @@ const featurePascal = name
 
 const dest = join(root, 'src/features', name);
 if (existsSync(dest)) {
-  console.error(`Feature "${name}" already exists at ${dest}`);
+  console.error(`Feature "${name}" existe déjà dans ${dest}`);
   process.exit(1);
 }
 
@@ -65,9 +65,9 @@ const g = '\x1b[32m', c = '\x1b[36m', b = '\x1b[1m', r = '\x1b[0m';
 
 console.log(`\n${g}${b}✓ Feature "${name}" créée${r}`);
 console.log(`\nFichiers générés dans ${c}src/features/${name}/${r} :\n`);
-console.log(`  components/${featurePascal}View.tsx   → composant principal`);
-console.log(`  hooks/use${featurePascal}.ts          → logique métier`);
-console.log(`  services/                              → appels API`);
+console.log(`  components/${featurePascal}View.tsx   → composant 'use client' principal`);
+console.log(`  hooks/use${featurePascal}.ts          → logique métier (hooks React)`);
+console.log(`  services/                              → appels API / adapters`);
 console.log(`  store/                                 → état local`);
 console.log(`  types/index.ts                         → types internes`);
 console.log(`  index.ts                               → interface publique`);
@@ -75,7 +75,7 @@ console.log(`  FEATURE_RULES.md                       → règles d'import`);
 console.log(`\n${b}Prochaines étapes :${r}`);
 console.log(`  1. Implémenter use${featurePascal}() dans ${c}hooks/use${featurePascal}.ts${r}`);
 console.log(`  2. Compléter ${c}${featurePascal}View.tsx${r} avec vos composants Banda`);
-console.log(`  3. Exporter depuis ${c}index.ts${r} ce dont les pages ont besoin`);
-console.log(`  4. Utiliser la feature dans une page :`);
+console.log(`  3. Exporter depuis ${c}index.ts${r} ce dont les vues ont besoin`);
+console.log(`  4. Utiliser la feature dans une vue :`);
 console.log(`     ${c}import { ${featurePascal}View } from '@/features/${name}';${r}`);
 console.log(`  5. Vérifier : ${c}pnpm typecheck && pnpm lint${r}\n`);

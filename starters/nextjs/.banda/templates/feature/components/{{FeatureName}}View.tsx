@@ -1,3 +1,5 @@
+'use client';
+
 import { use{{FeatureName}} } from '../hooks/use{{FeatureName}}';
 
 /**
