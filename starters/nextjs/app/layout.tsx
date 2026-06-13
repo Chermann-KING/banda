@@ -6,7 +6,7 @@ import '@banda/tokens/base.css';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Banda — Next.js starter',
+  title: 'Banda — Starter Next.js',
   description: 'Starter Next.js du design system Banda',
 };
 
