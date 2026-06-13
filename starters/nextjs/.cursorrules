@@ -1,0 +1,78 @@
+# Banda Next.js — Règles Cursor
+
+> Ce fichier est lu automatiquement par Cursor pour chaque session dans ce projet.
+> Il est identique en substance à `.github/copilot-instructions.md`.
+
+## Architecture des couches
+
+Ce starter utilise une architecture en couches stricte :
+
+```
+app/ (Next.js) → src/views/ → src/features/ → src/ui/ → src/shared/ → src/core/ ← src/infrastructure/
+```
+
+**Règle d'or :** Une couche ne peut importer que depuis les couches EN DESSOUS d'elle.
+- `core/` n'importe RIEN d'interne au projet.
+- `shared/` n'importe que `core/`.
+- `infrastructure/` n'importe que `core/`.
+- `ui/` n'importe que `core/` et `shared/`.
+- `features/` n'importe que `ui/`, `shared/`, `core/`.
+- `src/views/` n'importe que `features/`, `ui/`, `shared/`, `core/`.
+- `app/` est le seul point d'instanciation de l'infrastructure.
+
+> `src/views/` = couche pages Banda. Renommée pour éviter le conflit avec le Pages Router Next.js.
+
+Les violations sont détectées par `eslint-plugin-boundaries` et `no-restricted-imports`.
+
+## Next.js App Router
+
+- `'use client'` obligatoire sur tout fichier avec hooks ou APIs browser.
+- Ne JAMAIS appeler `window` / `document` dans `useState(() => ...)` ou au module level — utiliser `useEffect`.
+- Portals (`createPortal`) : utiliser un état `mounted` (false → true dans `useEffect`) pour éviter les erreurs SSR.
+- `app/layout.tsx` importe `@banda/tokens/css` + `@banda/tokens/base.css` pour les CSS variables.
+- `suppressHydrationWarning` sur `<html>` est requis (thème piloté par `data-theme`).
+
+## Design tokens Tailwind
+
+- TOUJOURS utiliser les classes `banda-*` : `bg-banda-primary`, `text-banda-text`, `rounded-md`.
+- JAMAIS de valeurs arbitraires : pas de `w-[347px]`, `text-[#abc]`, `p-[5px]`.
+- JAMAIS de `dark:` Tailwind — le dark mode passe par `data-theme` → CSS variables.
+
+## Icônes
+
+- UNIQUEMENT `lucide-react`. Importer : `import { IconName } from 'lucide-react'`.
+- Toujours `aria-hidden="true"` sur les icônes décoratives.
+- `aria-label` obligatoire sur les boutons icône.
+
+## React 19
+
+- Zéro `forwardRef` — passer `ref` directement comme prop.
+- Providers : `<MonContext value={…}>` PAS `<MonContext.Provider value={…}>`.
+- Zéro class component, zéro `defaultProps`.
+
+## TypeScript
+
+- Zéro `any`. Zéro `@ts-ignore`. Zéro `as unknown` non justifié.
+- `exactOptionalPropertyTypes: true` — props optionnelles : `prop?: Type | undefined`.
+- `import type { … }` pour les types (verbatimModuleSyntax actif).
+
+## Accessibilité
+
+- Rôles ARIA sur tous les contrôles interactifs.
+- `aria-invalid` sur les champs en erreur.
+- `aria-live` sur les régions dynamiques (toasts, messages d'erreur).
+- Focus visible : `focus-visible:ring-2 focus-visible:ring-banda-focus-ring`.
+
+## Quand créer un nouveau composant
+
+1. Crée un dossier `src/ui/components/banda/{nom}/`.
+2. Crée `Banda{Nom}.tsx` avec `'use client'` en tête, qui étend l'élément HTML natif.
+3. Crée `index.ts` avec les exports sélectifs.
+4. Crée `models/` si tu as des variantes composées.
+5. Ajoute-le au barrel `src/ui/index.ts`.
+
+## Quand créer une nouvelle feature
+
+1. Crée `src/features/{nom}/` avec `components/`, `hooks/`, `services/`, `types/`, `index.ts`.
+2. `index.ts` est la SEULE interface publique de la feature.
+3. Les autres features ne peuvent PAS importer depuis l'intérieur d'une feature.
