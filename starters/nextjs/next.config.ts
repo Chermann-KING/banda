@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   // Sans ce paramètre, "Collecting build traces" échoue car Next.js
   // cherche les traces dans starters/nextjs/ au lieu de la racine banda/.
   outputFileTracingRoot: path.join(import.meta.dirname, '../../'),
+  // @banda/react exporte du TypeScript source ; SWC doit le compiler.
+  transpilePackages: ['@banda/react'],
 };
 
 export default nextConfig;

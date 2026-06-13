@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { ArrowLeft, Moon, Sun } from 'lucide-react';
-import { BandaButton, useTheme } from '@/ui';
+import { BandaButton, useTheme } from '@banda/react';
 import { CATALOG, CATEGORIES, type CatalogEntry } from './registry';
 
 /** Slug courant depuis le hash : '#/c/button' → 'button' ; sinon null (index). */

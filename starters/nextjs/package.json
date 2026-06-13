@@ -14,7 +14,9 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@banda/core": "workspace:*",
     "@banda/fields": "workspace:*",
+    "@banda/react": "workspace:*",
     "@banda/tailwind": "workspace:*",
     "@banda/tokens": "workspace:*",
     "lucide-react": "^0.511.0",

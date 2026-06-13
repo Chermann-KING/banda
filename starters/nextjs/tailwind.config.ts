@@ -6,6 +6,7 @@ const config: Config = {
   content: [
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    '../../packages/banda-react/src/**/*.{ts,tsx}',
   ],
 };
 

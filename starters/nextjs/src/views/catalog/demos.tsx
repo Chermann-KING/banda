@@ -153,7 +153,7 @@ import {
   InsetLabelTextarea,
   OverlappingLabelTextarea,
   useToast,
-} from '@/ui';
+} from '@banda/react';
 
 /** Bloc d'exemple nommé — chaque page composant empile ces blocs (façon shadcn). */
 function Example({ title, children }: { title: string; children: React.ReactNode }) {

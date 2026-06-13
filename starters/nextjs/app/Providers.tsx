@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import type { ReactNode } from 'react';
 import { createLocalStorageThemeAdapter } from '@/infrastructure/storage/local-storage-theme.adapter';
 import { SuspenseBoundary } from '@/shared/components';
-import { ThemeProvider, BandaToastProvider } from '@/ui';
+import { ThemeProvider, BandaToastProvider } from '@banda/react';
 
 export function Providers({ children }: { children: ReactNode }) {
   const themeStorage = useMemo(() => createLocalStorageThemeAdapter(), []);
