@@ -7,7 +7,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Banda — Starter Next.js',
-  description: 'Starter Next.js du design system Banda',
+  description: "Starter Next.js du monorepo open-source de starters front-end prêts à l'emploi.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
