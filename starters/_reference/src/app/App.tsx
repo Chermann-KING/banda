@@ -1,5 +1,5 @@
 import { createLocalStorageThemeAdapter } from '@/infrastructure/storage/local-storage-theme.adapter';
-import { ThemeProvider, BandaToastProvider } from '@/ui';
+import { ThemeProvider, BandaToastProvider } from '@banda/react';
 import { CatalogPage } from '@/pages/catalog/CatalogPage';
 import { SuspenseBoundary } from '@/shared/components';
 

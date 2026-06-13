@@ -8,6 +8,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      // @banda/react exporte du TypeScript source — Vite ne le supporte pas
+      // via package.json#exports. On pointe directement vers le source.
+      '@banda/react': fileURLToPath(new URL('../../packages/banda-react/src/index.ts', import.meta.url)),
     },
   },
   test: {

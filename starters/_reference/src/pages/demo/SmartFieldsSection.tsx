@@ -14,7 +14,7 @@ import {
   PhoneField,
   useForm,
   useToast,
-} from '@/ui';
+} from '@banda/react';
 
 /**
  * Le schéma du formulaire est COMPOSÉ depuis les specs partagées :

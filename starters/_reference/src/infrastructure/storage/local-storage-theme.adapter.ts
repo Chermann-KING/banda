@@ -1,5 +1,5 @@
-import type { ThemeStoragePort } from '@/core/theme/theme-storage.port';
-import { isThemePreference, type ThemePreference } from '@/core/theme/theme';
+import type { ThemeStoragePort } from '@banda/core';
+import { isThemePreference, type ThemePreference } from '@banda/core';
 
 const STORAGE_KEY = 'banda.theme-preference';
 
