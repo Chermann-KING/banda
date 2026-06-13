@@ -1,0 +1,13 @@
+# Forcer LF sur tous les fichiers texte — cohérence cross-platform
+* text=auto eol=lf
+
+# Binaires — pas de conversion
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary

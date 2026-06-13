@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.next/
+.output/
+.nuxt/
+.svelte-kit/
+.astro/
+.turbo/
+coverage/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example

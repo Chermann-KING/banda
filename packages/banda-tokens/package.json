@@ -1,0 +1,21 @@
+{
+  "name": "@banda/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens du design system Banda — source JSON, CSS custom properties, exports TypeScript.",
+  "type": "module",
+  "license": "MIT",
+  "files": ["dist", "src/tokens.json"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./css": "./dist/banda.css",
+    "./base.css": "./dist/base.css",
+    "./tokens.json": "./src/tokens.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/build.test.mjs"
+  }
+}
