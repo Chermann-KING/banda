@@ -1,0 +1,57 @@
+{
+  "name": "@banda/starter-angular",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ng serve",
+    "build": "ng build",
+    "lint": "ng lint",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "test": "vitest run",
+    "banda:feature": "node .banda/scripts/create-feature.mjs",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.2.0",
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/router": "^19.2.0",
+    "@banda/angular": "workspace:*",
+    "@banda/core": "workspace:*",
+    "@banda/fields": "workspace:*",
+    "@banda/tailwind": "workspace:*",
+    "@banda/tokens": "workspace:*",
+    "lucide-angular": "^0.511.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.8.0",
+    "zod": "^3.25.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@analogjs/vitest-angular": "^1.18.0",
+    "@angular-devkit/build-angular": "^19.2.0",
+    "@angular/cli": "^19.2.0",
+    "@angular/compiler-cli": "^19.2.0",
+    "@testing-library/angular": "^17.3.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@types/node": "^22.15.0",
+    "angular-eslint": "^19.3.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.25.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.7.0",
+    "typescript-eslint": "^8.31.0",
+    "vitest": "^3.1.0"
+  },
+  "lint-staged": {
+    "*.{ts,html}": ["eslint --max-warnings 0"]
+  }
+}

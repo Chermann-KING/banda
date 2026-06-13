@@ -1,0 +1,5 @@
+@import '@banda/tokens/css';
+@import '@banda/tokens/base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
