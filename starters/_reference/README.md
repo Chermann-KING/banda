@@ -9,7 +9,7 @@ Ne pas l'utiliser directement en production : copier son contenu dans votre prop
 
 ## Démarrage rapide
 
-**Prérequis :** Node ≥ 20, pnpm 9 (`corepack enable`).
+**Prérequis :** Node ≥ 22, pnpm 9 (`corepack enable`).
 
 Ce starter fait partie d'un monorepo pnpm. Il ne peut pas être installé isolément.
 

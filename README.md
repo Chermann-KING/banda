@@ -31,7 +31,7 @@ guardrails IA intégrés. Portages prévus : `vue` · `svelte` · `astro` · `an
 
 ## Démarrage
 
-Prérequis : Node ≥ 20, pnpm 9 (`corepack enable`).
+Prérequis : Node ≥ 22, pnpm 9 (`corepack enable`).
 
 ```bash
 pnpm install

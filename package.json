@@ -4,7 +4,7 @@
   "description": "Banda — UI kit monorepo. Starters front-end prêts à l'emploi avec un design system partagé.",
   "packageManager": "pnpm@9.15.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "build": "turbo run build",
